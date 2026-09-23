@@ -517,14 +517,21 @@ body{font-family:Inter,Arial,Helvetica,sans-serif;color:#10243f}
 
  /* Features */
  .features{height:auto;padding:36px 0}
- .feature-row{display:grid;grid-template-columns:repeat(2,1fr);gap:28px 16px}
+ .feature-row{display:grid;grid-template-columns:repeat(2,1fr);gap:28px 16px;height:auto}
  .feature{height:auto}
  .feature:not(:last-child):after{display:none}
 
  /* Trust */
  .trust{height:auto}
- .trust-card{display:flex;flex-direction:column;padding:28px 24px;gap:20px}
+ .trust-card{height:auto;display:flex;flex-direction:column;padding:28px 24px;gap:20px}
  .divider{display:none}
+ .trust-left h2{font-size:28px;margin-bottom:20px}
+ .people{flex-wrap:wrap;height:auto;row-gap:10px}
+ .person{width:46px;height:46px}
+ .stars{white-space:normal;margin-left:14px;font-size:22px;letter-spacing:3px}
+ .security{height:auto;margin-left:0;padding:24px;gap:18px}
+ .security p{white-space:normal;font-size:18px}
+ .security h3{font-size:22px;margin:12px 0 12px}
 
  /* Pay — advert image */
  .pay{height:auto}
@@ -536,6 +543,7 @@ body{font-family:Inter,Arial,Helvetica,sans-serif;color:#10243f}
  .circle,.dash,.vertical-dash{display:none}
  .how-title{position:static !important;width:100% !important}
  .steps{position:static;grid-template-columns:1fr;gap:24px;margin-top:20px}
+ .step{height:auto;padding:26px 24px}
  .step-number{position:static;margin-bottom:10px}
 
  /* Industries */
@@ -547,11 +555,18 @@ body{font-family:Inter,Arial,Helvetica,sans-serif;color:#10243f}
  .powerful-features{height:auto;padding:36px 0;overflow:visible}
  .feature-content{height:auto;display:flex;flex-direction:column;gap:24px}
  .feature-heading,.feature-list,.feature-phone,.feature-dashed,.feature-scribbles{position:static !important;width:100% !important}
+ .feature-dashed,.feature-scribbles{display:none !important}
+ .feature-heading h2{margin-left:0;font-size:28px}
+ .feature-heading p{width:100% !important;margin-left:0;font-size:16px}
+ .feature-item{height:auto;min-height:60px;padding:12px 18px}
+ .feature-item .item-text{font-size:16px}
  .feature-phone{max-width:280px;margin:0 auto}
 
  /* Testimonials */
  .testimonials{height:auto;padding:36px 0}
+ .testimonial-heading p{width:100% !important;font-size:16px}
  .testimonial-track{grid-template-columns:1fr;height:auto;gap:20px}
+ .testimonial-card{height:auto;min-height:0}
  .carousel-arrow{display:none}
  .testimonial-space{display:none}
 
@@ -568,7 +583,7 @@ body{font-family:Inter,Arial,Helvetica,sans-serif;color:#10243f}
 
  /* Footer */
  .footer{height:auto;padding:32px 0}
- .footer-top{grid-template-columns:1fr;gap:28px}
+ .footer-top{height:auto;grid-template-columns:1fr;gap:28px}
  .footer-mid{flex-direction:column;gap:14px;align-items:flex-start;height:auto;padding:20px 0}
  .footer-bottom{flex-direction:column;gap:8px;align-items:flex-start;height:auto;padding:20px 0}
 }
@@ -654,7 +669,7 @@ body{font-family:Inter,Arial,Helvetica,sans-serif;color:#10243f}
 <section class="pay advert-section" aria-label="Promotional advert banner">
  <div class="container">
  <div class="advert-card pay-card">
-  <img class="advert-image" src="assets/images/kwotesmart-advert-paystack.png" alt="KwoteSmart Paystack promotional advert">
+  <img class="advert-image" src="assets/images/promotional-1.png" alt="KwoteSmart Paystack promotional advert">
  </div>
  </div>
 </section>
@@ -834,7 +849,7 @@ body{font-family:Inter,Arial,Helvetica,sans-serif;color:#10243f}
 <section class="cta-section advert-section" aria-label="Final promotional advert banner">
  <div class="container">
  <div class="advert-card cta-card">
-  <img class="advert-image" src="assets/images/kwotesmart-advert-growth.png" alt="KwoteSmart business growth promotional advert">
+  <img class="advert-image" src="assets/images/promotional-2.png" alt="KwoteSmart business growth promotional advert">
  </div>
  </div>
 </section>
