@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>KwoteSmart — Reference Rebuild</title>
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:#fff;overflow-x:hidden;max-width:100%}
+body{font-family:Inter,Arial,Helvetica,sans-serif;color:#10243f}
+.container{width:100%;max-width:1200px;margin:0 auto;padding:0 24px;position:relative;box-sizing:border-box}
+.powerful-features .container,.faq-section .container{height:100%}
+:root{
+ --navy:#10243f;
+ --muted:#75849a;
+ --gold:#c58a22;
+ --pale:#fff4dd;
+ --cream:#fffaf0;
+ --line:#e9e8e4;
+}
+
+/* FEATURES */
+.features{position:relative;width:100%;height:346px;background:#fff;margin-top:35px;padding-top:42px}
+.feature-row{display:grid;grid-template-columns:repeat(4,1fr);height:275px}
+.feature{height:250px;text-align:center;position:relative}
+.feature:not(:last-child):after{
+ content:"";position:absolute;right:0;top:42px;width:1px;height:208px;background:#eef0f3
+}
+.iconbox{
+ width:143px;height:143px;margin:0 auto 27px;border-radius:27px;
+ background:linear-gradient(145deg,#fff8e8,#fff0d1);
+ display:grid;place-items:center;color:#a86d0c
+}
+.icon{width:72px;height:72px;display:block}
+.feature h3{margin:0;font-size:34px;line-height:1.04;letter-spacing:-1.2px;font-weight:800;color:var(--navy)}
+.feature p{margin:20px 0 0;font-size:27px;line-height:1.05;color:#78869a;font-weight:400;letter-spacing:-.4px}
+
+/* TRUST */
+.trust{position:relative;width:100%;height:337px;margin-top:23px}
+.trust-card{
+ height:337px;border-radius:27px;
+ background:radial-gradient(circle at 30% 30%,#fffefb 0,#fffaf0 54%,#fff9ef 100%);
+ border:1px solid #fff8ea;
+ display:grid;grid-template-columns:1.15fr 1px .85fr;align-items:center;
+ padding:48px 38px
+}
+.trust-left h2{font-size:39px;line-height:1.05;letter-spacing:-1.1px;margin:0 0 38px;font-weight:800}
+.people{display:flex;align-items:center;height:62px}
+.person{
+ width:62px;height:62px;border-radius:50%;border:3px solid #fff;margin-left:-9px;overflow:hidden;
+ position:relative;background:linear-gradient(145deg,#4e2c21,#b96f45)
+}
+.person:first-child{margin-left:0}
+.person:before{content:"";position:absolute;width:28px;height:28px;border-radius:50%;left:15px;top:10px;background:#8d5235}
+.person:after{content:"";position:absolute;width:47px;height:27px;border-radius:28px 28px 5px 5px;left:7px;bottom:1px;background:#173c49}
+.person:nth-child(2){background:linear-gradient(145deg,#9e7c59,#33271f)}
+.person:nth-child(2):after{background:#222d37}
+.person:nth-child(3){background:linear-gradient(145deg,#c98a62,#5d3426)}
+.person:nth-child(3):after{background:#a23b3b}
+.person:nth-child(4){background:linear-gradient(145deg,#a66c49,#39251f)}
+.person:nth-child(4):after{background:#4e3540}
+.stars{margin-left:29px;color:#e4a21b;font-size:30px;letter-spacing:5px;white-space:nowrap}
+.trust-left p{font-size:27px;line-height:1.35;color:#73839a;margin:25px 0 0;letter-spacing:-.2px}
+.divider{width:1px;height:159px;background:#d8cfba}
+.security{height:247px;border-radius:27px;background:linear-gradient(145deg,#fff9ed,#fff5e5);margin-left:57px;padding:33px 37px;display:flex;align-items:flex-start;gap:28px}
+.shield{
+ width:96px;height:96px;border-radius:24px;background:#fff0cd;flex:none;display:grid;place-items:center
+}
+.security h3{font-size:28px;line-height:1.13;margin:17px 0 27px;font-weight:800;letter-spacing:-.5px}
+.security p{font-size:24px;line-height:1.35;color:#7a889c;margin:0;white-space:nowrap}
+
+/* PAYSTACK — promotional advert banner (replaceable image) */
+.pay{position:relative;width:100%;height:361px;margin-top:35px}
+.pay-card{
+ height:361px;border-radius:27px;overflow:hidden;position:relative;background:#fff;
+}
+
+/* Shared: full-bleed replaceable advert artwork (used by .pay and .cta-section) */
+.advert-card{
+ padding:0 !important;background:#fff;
+}
+.advert-image{
+ display:block;width:100%;height:100%;object-fit:cover;object-position:center;
+}
+
+/* HOW IT WORKS TOP VISIBLE */
+.how{position:relative;width:100%;height:760px;background:#fff;margin-top:60px}
+.how-head{position:absolute;left:0;top:4px;height:170px}
+.circle{width:68px;height:68px;border-radius:50%;background:#d49a27;color:#fff;display:grid;place-items:center;font-size:28px;font-weight:800}
+.dash{position:absolute;left:89px;top:30px;width:126px;border-top:4px dashed #d8dce0}
+.how-title{position:absolute;left:89px;top:66px;width:600px}
+.how-title h2{font-size:43px;line-height:1;margin:0;font-weight:800;letter-spacing:-1.15px}
+.how-title p{font-size:26px;color:#a2afc0;margin:14px 0 0;letter-spacing:-.2px}
+.vertical-dash{position:absolute;left:30px;top:89px;height:284px;border-left:4px dashed #dce1e6}
+
+/* Below-fold cards are included so the file is a complete landing-page section */
+.steps{position:absolute;left:0;right:0;top:186px;display:grid;grid-template-columns:repeat(3,1fr);gap:38px}
+.step{height:508px;border-radius:25px;background:linear-gradient(145deg,#fffefa,#fffaf0);border:1px solid #faf7ef;padding:22px 31px;position:relative;box-shadow:0 3px 15px rgba(39,52,70,.025)}
+.step-number{position:absolute;left:18px;top:198px;width:58px;height:58px;border-radius:50%;background:#d49a27;color:#fff;display:grid;place-items:center;font-size:25px;font-weight:800}
+.step-icon{height:245px;display:grid;place-items:center;color:#bd7f1a;font-size:86px}
+.step h3{font-size:28px;line-height:1.12;margin:0 0 22px;font-weight:800;letter-spacing:-.6px}
+.step p{font-size:23px;line-height:1.45;color:#77859a;margin:0;letter-spacing:-.15px}
+
+.continuation-industries{
+ position:relative;width:100%;height:366px;
+ background:#fff;margin-top:24px;
+}
+.industry-cont-card{
+ height:300px;width:100%;border-radius:26px;background:linear-gradient(110deg,#fffaf0,#fff8ef);
+ padding:31px 40px;
+}
+.industry-cont-card h2{
+ margin:0 0 43px;font-size:34px;line-height:1;font-weight:800;
+ color:#10243f;letter-spacing:-.7px;
+}
+.industry-cont-grid{
+ display:grid;grid-template-columns:repeat(6,1fr);text-align:center;
+}
+.industry-cont-grid>div{display:flex;flex-direction:column;align-items:center}
+.industry-cont-icon{
+ height:58px;font-size:43px;line-height:1;color:#22364e;
+ display:grid;place-items:center;margin-bottom:18px;font-weight:700;
+}
+.industry-cont-grid span{font-size:21px;color:#75849a}
+.industry-cont-icon.more{font-size:32px;letter-spacing:8px;margin-left:8px}
+
+
+
+/* CTA — final promotional advert banner (replaceable image) */
+.cta-section{position:relative;width:100%;height:430px}
+.cta-card{height:385px;width:100%;border-radius:27px;background:#fff;position:relative;overflow:hidden}
+.footer{position:relative;width:100%;height:330px;color:#10243f}
+.footer-top{height:177px;display:grid;grid-template-columns:1.35fr .9fr .9fr .95fr;column-gap:58px;padding:10px 0 0;border-bottom:1px solid #e7e8ea}
+.footer-brand{display:flex;gap:17px;align-items:flex-start;padding-top:10px}.footer-logo{width:62px;height:62px;border-radius:11px;background:#d69a22;color:#fff;display:grid;place-items:center;font-size:31px;font-weight:800;box-shadow:inset 0 -4px 0 rgba(0,0,0,.07)}
+.footer-brand strong{font-size:25px;line-height:1.1;margin-top:5px}.footer-brand strong span{color:#d19827}.footer-brand small{display:block;color:#8591a2;font-size:15px;margin-top:8px}
+.footer-col h4{font-size:18px;margin:2px 0 16px}.footer-col a{display:block;text-decoration:none;color:#78869a;font-size:16px;line-height:1.9}.badges{display:flex;flex-direction:column;gap:10px}.badge{height:49px;width:167px;border-radius:7px;background:#14263d;color:#fff;display:flex;align-items:center;padding:0 12px;gap:8px;font-size:10px;font-weight:700}.badge b{font-size:16px}.badge span{font-size:8px;font-weight:400;display:block}
+.footer-mid{height:76px;display:flex;align-items:center;justify-content:space-between}.contact{display:flex;gap:52px;color:#748299;font-size:14px}.contact span{display:flex;align-items:center;gap:9px}.social{display:flex;gap:24px;font-weight:800;font-size:16px;color:#22364e}.footer-bottom{height:77px;border-top:1px solid #e9eaec;display:flex;align-items:center;justify-content:space-between;color:#8591a2;font-size:13px}.tagline{font-family:cursive;color:#b58629;font-size:20px;font-style:italic}
+
+
+/* POWERFUL FEATURES + CUSTOMER TESTIMONIALS EXTENSION */
+.powerful-features{
+ position:relative;width:100%;height:680px;
+ background:#fff;overflow:hidden;margin-top:57px;
+}
+.powerful-features:after{
+ content:"";position:absolute;right:-80px;top:-95px;width:560px;height:820px;
+ background:
+   radial-gradient(circle at 55% 55%,rgba(238,191,91,.35) 0 23%,transparent 24%),
+   radial-gradient(circle at 72% 28%,rgba(245,218,167,.42) 0 22%,transparent 23%),
+   linear-gradient(135deg,rgba(255,250,239,.75),rgba(255,255,255,0));
+ transform:rotate(7deg);pointer-events:none;
+}
+.feature-content{position:relative;z-index:2;width:100%;height:100%}
+.feature-heading{position:absolute;left:0;top:27px;width:625px}
+.feature-heading .section-label{
+ display:flex;align-items:center;gap:20px;color:#b27b19;font-size:20px;
+ font-weight:800;letter-spacing:2px;text-transform:uppercase;
+}
+.feature-heading .section-number{
+ width:62px;height:62px;border-radius:50%;background:#d49a27;color:#fff;
+ display:grid;place-items:center;font-size:28px;letter-spacing:0;
+ box-shadow:0 4px 9px rgba(185,130,28,.18);
+}
+.feature-heading h2{
+ margin:15px 0 16px 80px;font-size:42px;line-height:1.02;letter-spacing:-1.2px;
+ font-weight:800;color:#10243f;
+}
+.feature-heading p{
+ margin:0 0 0 80px;width:520px;font-size:25px;line-height:1.28;
+ color:#77869b;letter-spacing:-.25px;
+}
+.feature-dashed{
+ position:absolute;left:30px;top:97px;height:535px;border-left:4px dashed #dce1e6;
+}
+.feature-list{
+ position:absolute;left:0;top:307px;width:590px;display:flex;flex-direction:column;gap:12px;
+}
+.feature-item{
+ height:68px;border-radius:34px;background:linear-gradient(100deg,#fffdf8,#fffaf0);
+ display:flex;align-items:center;padding:0 24px 0 18px;
+ box-shadow:0 3px 13px rgba(40,56,75,.035);
+}
+.feature-item .item-icon{
+ width:54px;height:54px;border-radius:50%;background:#fff0d0;color:#a86d0c;
+ display:grid;place-items:center;font-size:27px;font-weight:800;flex:none;
+}
+.feature-item .item-text{
+ margin-left:18px;font-size:21px;font-weight:700;color:#253b55;
+}
+.feature-item .item-arrow{
+ margin-left:auto;font-size:30px;color:#6e8195;font-weight:400;
+}
+.feature-phone{
+ position:absolute;z-index:4;right:74px;top:26px;width:330px;height:610px;
+ background:#f8f9f7;border:9px solid #202a30;border-radius:55px;
+ transform:rotate(7deg);box-shadow:0 20px 28px rgba(0,0,0,.22);
+ padding:55px 22px 20px;color:#10243f;overflow:hidden;
+}
+.feature-phone:before{
+ content:"";position:absolute;top:10px;left:98px;width:115px;height:24px;
+ border-radius:15px;background:#111820;
+}
+.feature-phone .phone-brand{
+ font-size:15px;font-weight:800;color:#bd821b;text-align:left;margin-bottom:34px;
+}
+.phone-revenue-label{font-size:12px;color:#718096;margin-bottom:5px}
+.phone-revenue{font-size:27px;font-weight:800;letter-spacing:-.6px}
+.phone-growth{font-size:12px;color:#18a875;font-weight:800;margin-top:5px}
+.phone-chart{
+ height:105px;margin:15px 0 20px;border-bottom:1px solid #edf0f2;
+}
+.phone-chart svg{width:100%;height:100%}
+.phone-actions-title{font-size:13px;font-weight:800;margin-bottom:12px}
+.phone-action-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.phone-action{
+ height:72px;border:1px solid #f0f1ef;border-radius:10px;background:#fff;
+ display:flex;flex-direction:column;align-items:center;justify-content:center;
+ gap:7px;box-shadow:0 2px 8px rgba(20,38,61,.04);
+}
+.phone-action b{font-size:20px;color:#b77c18}.phone-action span{font-size:9px;font-weight:700}
+.phone-bottom{
+ position:absolute;left:0;right:0;bottom:0;height:58px;border-top:1px solid #eceff0;
+ background:#fff;display:flex;align-items:center;justify-content:space-around;
+ font-size:10px;color:#7a889a;
+}
+.phone-bottom .active{color:#b27a16;font-weight:800}
+.feature-scribbles{
+ position:absolute;z-index:3;right:370px;top:184px;color:#b47b1b;
+ font-size:42px;font-weight:400;transform:rotate(-22deg);
+}
+.feature-scribbles:after{
+ content:"";display:block;width:80px;border-top:4px solid #b47b1b;
+ transform:rotate(-24deg);margin:12px 0 0 20px;
+}
+
+.testimonials{
+ position:relative;width:100%;height:920px;
+ background:#fff;margin-top:0;
+}
+.testimonial-heading{padding-top:38px}
+.testimonial-label{
+ margin:0 0 12px;font-size:19px;font-weight:800;letter-spacing:2px;
+ color:#b27b19;text-transform:uppercase;
+}
+.testimonial-heading h2{
+ margin:0;font-size:40px;line-height:1.05;letter-spacing:-1px;font-weight:800;color:#10243f;
+}
+.testimonial-heading p{
+ margin:18px 0 0;font-size:24px;line-height:1.3;color:#77869b;width:700px;
+}
+.testimonial-track{
+ position:relative;margin-top:28px;width:100%;height:395px;
+ display:grid;grid-template-columns:repeat(3,1fr);gap:30px;
+}
+.testimonial-card{
+ height:395px;border:1px solid #e8edf2;border-radius:23px;background:#fff;
+ padding:25px 31px;box-shadow:0 4px 17px rgba(30,47,68,.045);position:relative;
+}
+.customer-top{display:flex;align-items:center}
+.avatar{
+ width:90px;height:90px;border-radius:50%;border:4px solid #f2f3f3;
+ position:relative;overflow:hidden;flex:none;
+ background:linear-gradient(145deg,#e8e8e5,#c9c8c2);
+}
+.avatar:before{
+ content:"";position:absolute;width:36px;height:36px;border-radius:50%;
+ left:25px;top:15px;background:#7b4b32;
+}
+.avatar:after{
+ content:"";position:absolute;width:64px;height:45px;border-radius:38px 38px 9px 9px;
+ left:13px;bottom:-3px;background:#202a30;
+}
+.avatar.woman:before{background:#6b3e2c;width:35px;height:35px;left:26px;top:15px}
+.avatar.woman:after{background:#151515;width:72px;height:52px;left:9px;bottom:-8px}
+.avatar.yellow:after{background:#d8a22a}
+.rating{
+ margin-left:18px;color:#e2a21b;font-size:22px;letter-spacing:3px;white-space:nowrap;
+}
+.testimonial-card blockquote{
+ margin:27px 0 21px;font-size:19px;line-height:1.48;color:#64758a;
+}
+.customer-name{font-size:18px;font-weight:800;color:#20364f;margin-bottom:5px}
+.customer-role{font-size:16px;color:#8b97a7}
+.carousel-arrow{
+ position:absolute;top:148px;width:72px;height:72px;border-radius:50%;
+ background:#fff;border:1px solid #e5e9ed;box-shadow:0 5px 16px rgba(30,47,68,.08);
+ display:grid;place-items:center;font-size:42px;color:#142c46;z-index:5;
+}
+.carousel-arrow.left{left:-43px}
+.carousel-arrow.right{right:-43px}
+.testimonial-dots{
+ display:flex;justify-content:center;gap:9px;margin-top:30px;
+}
+.testimonial-dot{
+ width:10px;height:10px;border-radius:50%;background:#cfd5dc;
+}
+.testimonial-dot.active{background:#d49a27;width:28px;border-radius:8px}
+.testimonial-space{
+ position:absolute;left:80px;right:80px;bottom:45px;height:1px;background:#f0f1f2;
+}
+
+/* FAQ + FINAL CTA EXTENSION */
+.faq-section{
+ position:relative;width:100%;height:680px;
+ background:#fff;overflow:hidden;margin-top:0;
+}
+.faq-inner{width:100%;height:100%;position:relative}
+.faq-dashed{
+ position:absolute;left:39px;top:98px;height:500px;border-left:4px dashed #dce1e6;
+}
+.faq-heading{padding-top:30px;margin-left:0}
+.faq-label{
+ display:flex;align-items:center;gap:20px;color:#b27b19;font-size:19px;
+ font-weight:800;letter-spacing:2px;text-transform:uppercase;
+}
+.faq-number{
+ width:62px;height:62px;border-radius:50%;background:#d49a27;color:#fff;
+ display:grid;place-items:center;font-size:28px;letter-spacing:0;
+ box-shadow:0 4px 9px rgba(185,130,28,.18);
+}
+.faq-heading h2{
+ margin:13px 0 12px 80px;font-size:43px;line-height:1.04;
+ letter-spacing:-1.2px;font-weight:800;color:#10243f;
+}
+.faq-heading p{
+ margin:0 0 0 80px;font-size:24px;line-height:1.32;color:#77869b;
+}
+.faq-list{
+ position:absolute;left:80px;right:0;top:270px;
+ display:flex;flex-direction:column;gap:14px;
+}
+.faq-item{
+ border:1px solid #e7ebef;border-radius:22px;background:#fff;
+ min-height:76px;box-shadow:0 4px 15px rgba(30,47,68,.045);
+ overflow:hidden;
+}
+.faq-question{
+ min-height:76px;padding:0 28px;display:flex;align-items:center;
+ justify-content:space-between;font-size:21px;font-weight:700;color:#20364f;
+ cursor:pointer;
+}
+.faq-chevron{
+ width:28px;height:28px;display:grid;place-items:center;
+ font-size:29px;color:#10243f;transition:transform .2s ease;
+}
+.faq-answer{
+ max-height:0;overflow:hidden;padding:0 28px;color:#718197;
+ font-size:18px;line-height:1.5;transition:max-height .25s ease,padding .25s ease;
+}
+.faq-item.open .faq-answer{max-height:130px;padding:0 28px 20px}
+.faq-item.open .faq-chevron{transform:rotate(180deg)}
+
+
+
+/* WIDER/TALLER PROMOTIONAL BANNERS */
+.pay{
+ height:420px;
+}
+.pay-card{
+ height:420px;
+}
+
+/* Match the extra breathing room on the final banner near the footer. */
+.cta-section{
+ height:470px;
+}
+.cta-card{
+ height:440px;
+}
+
+
+/* TOP NAVIGATION + HERO */
+.top-hero {
+ position:relative;width:100%;height:980px;background:#fff;overflow:hidden;
+}
+.top-nav {
+ height:245px;width:100%;display:flex;align-items:center;
+ border-bottom:1px solid #f1f1ef;background:#fff;position:relative;z-index:10;
+}
+.top-nav .container{
+ height:100%;display:flex;align-items:center;justify-content:space-between;
+}
+.brand {
+ display:flex;align-items:center;gap:24px;
+}
+.brand-mark {
+ width:120px;height:120px;border-radius:28px;background:linear-gradient(145deg,#dca127,#b87910);
+ display:grid;place-items:center;box-shadow:0 6px 12px rgba(178,120,17,.16);
+}
+.brand-mark svg {width:66px;height:66px}
+.brand-name {
+ font-size:42px;line-height:1;font-weight:800;letter-spacing:-1.6px;color:#10243f;
+}
+.brand-name span {color:#c58a22}
+.brand-sub {
+ margin-top:9px;font-size:23px;color:#738299;letter-spacing:.2px;
+}
+.brand-sub b {color:#b98320;font-weight:500;margin:0 8px}
+.menu-button {
+ width:72px;height:60px;border:0;background:transparent;display:flex;flex-direction:column;
+ justify-content:center;gap:9px;padding:0;cursor:pointer;
+}
+.menu-button i {display:block;height:5px;width:66px;border-radius:4px;background:#10243f}
+.hero-pill {
+ display:inline-flex;align-items:center;height:52px;padding:0 25px;border-radius:28px;
+ background:#fff6df;color:#a5741b;font-size:22px;font-weight:700;
+ box-shadow:0 2px 8px rgba(196,145,47,.08);
+}
+.hero-copy h1 .gold {color:#c58a22}
+.dashboard-card {
+ position:absolute;z-index:6;left:670px;bottom:-55px;width:335px;height:430px;
+ background:rgba(255,255,255,.97);border-radius:27px;border:1px solid #e8ecef;
+ transform:rotate(-4deg);box-shadow:0 15px 30px rgba(25,43,62,.19);
+ padding:28px 24px 20px;color:#10243f;
+}
+.dashboard-card .mini-brand {
+ font-size:15px;font-weight:800;color:#b57a15;margin-bottom:28px;
+}
+.dashboard-card .mini-brand span {color:#c58a22}
+.dashboard-label {font-size:13px;color:#7c8999}
+.dashboard-total {font-size:29px;font-weight:800;margin-top:5px}
+.dashboard-growth {font-size:13px;color:#1ca879;font-weight:800;margin-top:5px}
+.dashboard-chart {height:82px;margin:13px 0 16px;border-bottom:1px solid #edf0f2}
+.dashboard-chart svg {width:100%;height:100%}
+.dashboard-title {font-size:14px;font-weight:800;margin-bottom:10px}
+.quote-row {
+ display:flex;align-items:center;justify-content:space-between;padding:10px 8px;
+ border-top:1px solid #f0f1f2;font-size:10px;
+}
+.quote-row strong {font-size:11px}
+.status {padding:5px 8px;border-radius:10px;background:#e1f6ed;color:#1a9d72;font-weight:700}
+.status.draft {background:#edf0f4;color:#778598}
+.dashboard-bottom {
+ position:absolute;left:0;right:0;bottom:0;height:55px;border-top:1px solid #edf0f1;
+ display:flex;align-items:center;justify-content:space-around;background:#fff;border-radius:0 0 27px 27px;
+ font-size:9px;color:#718197;
+}
+.dashboard-bottom .active {color:#b27b19;font-weight:800}
+.hero-scribble {
+ position:absolute;z-index:5;right:60px;top:110px;color:#b37a18;
+ font-family:"Comic Sans MS",cursive;font-size:35px;line-height:1.03;font-style:italic;
+ font-weight:700;transform:rotate(-6deg);
+}
+.hero-scribble:after {
+ content:"";display:block;width:130px;border-bottom:4px solid #c68b1e;margin:12px 0 0 8px;transform:rotate(-6deg);
+}
+.hero-accent {
+ position:absolute;z-index:3;right:420px;top:255px;width:95px;height:5px;
+ background:#c58a22;transform:rotate(-31deg);border-radius:5px;
+}
+.hero-accent:after {
+ content:"";position:absolute;width:70px;height:5px;background:#c58a22;left:-13px;top:34px;transform:rotate(-7deg);border-radius:5px;
+}
+
+/* FINAL HERO REBUILD — seamless photo layer from the supplied first reference */
+.top-hero{
+ position:relative;width:100%;height:980px;background:#fff;overflow:hidden;
+}
+.hero{
+ position:relative;width:100%;height:735px;overflow:hidden;
+ background-image:url('/assets/images/hero-bg.jpg');
+ background-size:cover;
+ background-position:center right;
+}
+.hero-photo{
+ position:absolute;inset:0;width:68%;z-index:1;
+ background:linear-gradient(to right,#ffffff 0%,#ffffff 52%,rgba(255,255,255,0.88) 68%,rgba(255,255,255,0) 100%);
+}
+.hero-copy{
+ position:relative;z-index:2;width:52%;max-width:620px;padding:60px 0 0 78px;
+}
+.hero-copy h1{
+ margin:30px 0 22px;font-size:61px;line-height:1.03;letter-spacing:-2.3px;
+ color:#10243f;font-weight:800;
+}
+.hero-copy p{
+ margin:0;width:555px;font-size:25px;line-height:1.42;color:#738299;
+}
+.hero-cta{
+ margin-top:34px;height:76px;padding:0 40px;border:0;border-radius:40px;
+ background:linear-gradient(180deg,#e5ad35,#c98a19);color:#fff;
+ display:inline-flex;align-items:center;gap:31px;font-size:25px;font-weight:800;
+ box-shadow:0 9px 18px rgba(189,130,23,.24);text-decoration:none;
+}
+.hero-cta b{font-size:39px;font-weight:400;line-height:0}
+.hero-note{
+ margin-top:18px;font-size:19px;color:#30445d;font-weight:600;
+}
+.hero-note:before{
+ content:"";display:inline-block;width:6px;height:6px;border-radius:50%;
+ background:#c58a22;margin:0 10px 3px 0;
+}
+
+/* ============ MOBILE (max-width:768px) ============ */
+@media(max-width:768px){
+ .container{padding:0 16px}
+
+ /* Nav */
+ .top-nav{height:88px}
+ .brand-mark{width:56px;height:56px;border-radius:14px}
+ .brand-mark svg{width:32px;height:32px}
+ .brand-name{font-size:22px;letter-spacing:-.8px}
+ .brand-sub{font-size:12px;margin-top:3px}
+ .menu-button{width:40px;height:34px;gap:6px}
+ .menu-button i{width:36px;height:3px}
+
+ /* Hero */
+ .top-hero{height:auto}
+ .hero{height:auto;min-height:560px;background-position:center;padding-bottom:40px}
+ .hero-photo{width:100%;background:linear-gradient(180deg,#ffffff 0%,#ffffff 55%,rgba(255,255,255,0.9) 75%,rgba(255,255,255,0.55) 100%)}
+ .hero-copy{position:relative;width:100%;max-width:100%;padding:36px 20px 0}
+ .hero-copy h1{font-size:36px;letter-spacing:-1.2px;margin:18px 0 14px}
+ .hero-copy p{font-size:17px !important;width:100% !important}
+ .hero-pill{height:40px;padding:0 16px;font-size:14px}
+ .hero-cta{height:56px !important;padding:0 24px !important;font-size:16px !important}
+ .hero-note{font-size:13px !important}
+
+ /* Features */
+ .features{height:auto;padding:36px 0}
+ .feature-row{display:grid;grid-template-columns:repeat(2,1fr);gap:28px 16px;height:auto}
+ .feature{height:auto}
+ .feature:not(:last-child):after{display:none}
+
+ /* Trust */
+ .trust{height:auto}
+ .trust-card{height:auto;display:flex;flex-direction:column;padding:28px 24px;gap:20px}
+ .divider{display:none}
+ .trust-left h2{font-size:28px;margin-bottom:20px}
+ .people{flex-wrap:wrap;height:auto;row-gap:10px}
+ .person{width:46px;height:46px}
+ .stars{white-space:normal;margin-left:14px;font-size:22px;letter-spacing:3px}
+ .security{height:auto;margin-left:0;padding:24px;gap:18px}
+ .security p{white-space:normal;font-size:18px}
+ .security h3{font-size:22px;margin:12px 0 12px}
+
+ /* Pay — advert image */
+ .pay{height:auto}
+ .pay-card{height:auto;aspect-ratio:1536/642}
+
+ /* How it works */
+ .how{height:auto;padding:36px 0}
+ .how-head{position:static;height:auto}
+ .circle,.dash,.vertical-dash{display:none}
+ .how-title{position:static !important;width:100% !important}
+ .steps{position:static;grid-template-columns:1fr;gap:24px;margin-top:20px}
+ .step{height:auto;padding:26px 24px}
+ .step-number{position:static;margin-bottom:10px}
+
+ /* Industries */
+ .continuation-industries{height:auto}
+ .industry-cont-card{height:auto;padding:28px 20px}
+ .industry-cont-grid{grid-template-columns:repeat(3,1fr)}
+
+ /* Powerful features */
+ .powerful-features{height:auto;padding:36px 0;overflow:visible}
+ .feature-content{height:auto;display:flex;flex-direction:column;gap:24px}
+ .feature-heading,.feature-list,.feature-phone,.feature-dashed,.feature-scribbles{position:static !important;width:100% !important}
+ .feature-dashed,.feature-scribbles{display:none !important}
+ .feature-heading h2{margin-left:0;font-size:28px}
+ .feature-heading p{width:100% !important;margin-left:0;font-size:16px}
+ .feature-item{height:auto;min-height:60px;padding:12px 18px}
+ .feature-item .item-text{font-size:16px}
+ .feature-phone{max-width:280px;margin:0 auto}
+
+ /* Testimonials */
+ .testimonials{height:auto;padding:36px 0}
+ .testimonial-heading p{width:100% !important;font-size:16px}
+ .testimonial-track{grid-template-columns:1fr;height:auto;gap:20px}
+ .testimonial-card{height:auto;min-height:0}
+ .carousel-arrow{display:none}
+ .testimonial-space{display:none}
+
+ /* FAQ */
+ .faq-section{height:auto;padding:36px 0;overflow:visible}
+ .faq-inner{height:auto}
+ .faq-dashed{display:none}
+ .faq-heading{position:static !important;width:100% !important;margin-left:0}
+ .faq-list{position:static !important;width:100% !important;margin-top:24px}
+
+ /* CTA — advert image */
+ .cta-section{height:auto;padding:36px 0}
+ .cta-card{height:auto;aspect-ratio:1536/512}
+
+ /* Footer */
+ .footer{height:auto;padding:32px 0}
+ .footer-top{height:auto;grid-template-columns:1fr;gap:28px}
+ .footer-mid{flex-direction:column;gap:14px;align-items:flex-start;height:auto;padding:20px 0}
+ .footer-bottom{flex-direction:column;gap:8px;align-items:flex-start;height:auto;padding:20px 0}
+}
+</style>
+</head>
+<body>
+
+<section class="top-hero">
+ <nav class="top-nav">
+  <div class="container">
+   <div class="brand">
+    <div class="brand-mark">
+     <svg viewBox="0 0 72 72" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M18 9h28l11 11v43H18z"/><path d="M46 9v13h11M29 34h18M29 44h18"/>
+     </svg>
+    </div>
+    <div>
+     <div class="brand-name">Kwote<span>Smart</span></div>
+     <div class="brand-sub">Quote <b>•</b> Invoice <b>•</b> Get Paid</div>
+    </div>
+   </div>
+   <button class="menu-button" aria-label="Open menu"><i></i><i></i><i></i></button>
+  </div>
+ </nav>
+
+ <div class="hero">
+  <div class="hero-photo" aria-hidden="true"></div>
+
+  <div class="hero-copy">
+   <div class="hero-pill">The Smarter Way to Do Business</div>
+   <h1>Create Quotes,<br>Send Invoices &amp;<br>Get Paid —<br><span class="gold">All in One Place.</span></h1>
+   <p>KwoteSmart helps Nigerian<br>businesses look professional,<br>work faster and get paid on time.</p>
+   <a href="#" class="hero-cta">Get Started Free <b>→</b></a>
+   <div class="hero-note">No credit card required</div>
+  </div>
+ </div>
+</section>
+
+
+<section class="features">
+ <div class="container">
+ <div class="feature-row">
+  <article class="feature">
+   <div class="iconbox"><svg class="icon" viewBox="0 0 72 72" fill="none" stroke="#a66b09" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 9h28l11 11v43H18z"/><path d="M46 9v13h13M29 34h18M29 44h18"/></svg></div>
+   <h3>Create<br>Quotes</h3><p>In minutes</p>
+  </article>
+  <article class="feature">
+   <div class="iconbox"><svg class="icon" viewBox="0 0 72 72" fill="none" stroke="#a66b09" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 9h28l11 11v43H17z"/><path d="M45 9v13h11M28 34h19M28 44h19"/></svg></div>
+   <h3>Send<br>Invoices</h3><p>Track in real-time</p>
+  </article>
+  <article class="feature">
+   <div class="iconbox"><svg class="icon" viewBox="0 0 72 72" fill="none" stroke="#a66b09" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="19" width="56" height="37" rx="7"/><path d="M8 30h56M20 45h8"/></svg></div>
+   <h3>Get Paid</h3><p>Via Paystack<br>&amp; more</p>
+  </article>
+  <article class="feature">
+   <div class="iconbox"><svg class="icon" viewBox="0 0 72 72" fill="none" stroke="#a66b09" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><circle cx="36" cy="24" r="10"/><path d="M17 57c2-12 11-18 19-18s17 6 19 18M17 25c-7 1-11 7-11 13M55 25c7 1 11 7 11 13M12 57c1-8 6-13 12-15M60 57c-1-8-6-13-12-15"/></svg></div>
+   <h3>Manage<br>Clients</h3><p>All in one place</p>
+  </article>
+ </div>
+ </div>
+</section>
+
+<section class="trust">
+ <div class="container">
+ <div class="trust-card">
+  <div class="trust-left">
+   <h2>Trusted by Nigerian<br>Businesses</h2>
+   <div class="people">
+    <span class="person"></span><span class="person"></span><span class="person"></span><span class="person"></span>
+    <span class="stars">★★★★★</span>
+   </div>
+   <p>Join thousands of growing businesses<br>who trust KwoteSmart.</p>
+  </div>
+  <div class="divider"></div>
+  <div class="security">
+   <div class="shield"><svg width="58" height="65" viewBox="0 0 58 65" fill="none" stroke="#a66b09" stroke-width="5" stroke-linejoin="round"><path d="M29 3 51 11v17c0 16-9 27-22 34C16 55 7 44 7 28V11z"/><path d="m18 31 7 7 15-17"/></svg></div>
+   <div><h3>Secure<br>&amp; Reliable</h3><p>Your data is protected<br>with bank-grade security.</p></div>
+  </div>
+ </div>
+ </div>
+</section>
+
+<section class="pay advert-section" aria-label="Promotional advert banner">
+ <div class="container">
+ <div class="advert-card pay-card">
+  <img class="advert-image" src="assets/images/promotional-1.png" alt="KwoteSmart Paystack promotional advert">
+ </div>
+ </div>
+</section>
+
+<section class="how">
+ <div class="container">
+ <div class="how-head"><div class="circle">1</div><div class="dash"></div><div class="vertical-dash"></div><div class="how-title"><h2>How It Works</h2><p>Get started in 3 simple steps.</p></div></div>
+ <div class="steps">
+  <article class="step"><span class="step-number">1</span><div class="step-icon">▣</div><h3>Create Your Account</h3><p>Sign up in minutes and set up your business profile.</p></article>
+  <article class="step"><span class="step-number">2</span><div class="step-icon">▤</div><h3>Create a Quote or Invoice</h3><p>Add your services, set prices, customize your template and send it to your client.</p></article>
+  <article class="step"><span class="step-number">3</span><div class="step-icon">▭</div><h3>Get Paid</h3><p>Your client pays securely and you get notified instantly.</p></article>
+ </div>
+ </div>
+</section>
+
+<section class="continuation-industries">
+  <div class="container">
+  <div class="industry-cont-card">
+    <h2>Powering Businesses Across Nigeria</h2>
+    <div class="industry-cont-grid">
+      <div><div class="industry-cont-icon">⚒</div><span>Construction</span></div>
+      <div><div class="industry-cont-icon">▣</div><span>Retail</span></div>
+      <div><div class="industry-cont-icon">▰</div><span>Logistics</span></div>
+      <div><div class="industry-cont-icon">✿</div><span>Services</span></div>
+      <div><div class="industry-cont-icon">⌂</div><span>Real Estate</span></div>
+      <div><div class="industry-cont-icon more">•••</div><span>More</span></div>
+    </div>
+  </div>
+  </div>
+</section>
+
+
+
+<section class="powerful-features">
+ <div class="container">
+ <div class="feature-content">
+  <div class="feature-dashed"></div>
+
+  <div class="feature-heading">
+   <div class="section-label"><span class="section-number">2</span><span>Powerful Features</span></div>
+   <h2>Everything You Need<br>in One Place</h2>
+   <p>From creating professional quotes<br>to tracking payments, KwoteSmart<br>makes your business simpler,<br>faster and more organized.</p>
+  </div>
+
+  <div class="feature-list">
+   <div class="feature-item">
+    <span class="item-icon">▤</span><span class="item-text">Create Professional Quotes</span><span class="item-arrow">›</span>
+   </div>
+   <div class="feature-item">
+    <span class="item-icon">➤</span><span class="item-text">Send Invoices &amp; Track Status</span><span class="item-arrow">›</span>
+   </div>
+   <div class="feature-item">
+    <span class="item-icon">▣</span><span class="item-text">Get Paid via Paystack</span><span class="item-arrow">›</span>
+   </div>
+   <div class="feature-item">
+    <span class="item-icon">♧</span><span class="item-text">Manage Clients &amp; Reports</span><span class="item-arrow">›</span>
+   </div>
+  </div>
+
+  <div class="feature-scribbles">〰</div>
+
+  <div class="feature-phone">
+   <div class="phone-brand">▣ Kwote<span style="color:#d49a27">Smart</span></div>
+   <div class="phone-revenue-label">Total Revenue</div>
+   <div class="phone-revenue">₦2,450,000</div>
+   <div class="phone-growth">↗ +32%</div>
+   <div class="phone-chart">
+    <svg viewBox="0 0 280 105" preserveAspectRatio="none">
+     <polyline points="0,89 25,78 50,83 75,67 99,73 126,52 151,62 176,43 202,49 226,29 252,38 280,10"
+       fill="none" stroke="#dca126" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+     <path d="M0 89 L25 78 L50 83 L75 67 L99 73 L126 52 L151 62 L176 43 L202 49 L226 29 L252 38 L280 10 L280 105 L0 105Z"
+       fill="#fff1d1" opacity=".7"/>
+    </svg>
+   </div>
+   <div class="phone-actions-title">Quick Actions</div>
+   <div class="phone-action-grid">
+    <div class="phone-action"><b>▤</b><span>Create Quote</span></div>
+    <div class="phone-action"><b>▧</b><span>Create Invoice</span></div>
+    <div class="phone-action"><b>♧</b><span>Add Client</span></div>
+    <div class="phone-action"><b>▥</b><span>View Reports</span></div>
+   </div>
+   <div class="phone-bottom">
+    <span class="active">⌂<br>Home</span><span>▧<br>Quotes</span><span>▤<br>Invoices</span><span>♧<br>Clients</span><span>•••<br>More</span>
+   </div>
+  </div>
+ </div>
+ </div>
+</section>
+
+<section class="testimonials">
+ <div class="container">
+ <div class="testimonial-heading">
+  <div class="testimonial-label">Real Businesses. Real Results.</div>
+  <h2>What Our Customers Say</h2>
+  <p>Join thousands of Nigerian businesses already growing<br>with KwoteSmart.</p>
+ </div>
+
+ <div class="testimonial-track">
+  <button class="carousel-arrow left" aria-label="Previous testimonial">‹</button>
+
+  <article class="testimonial-card">
+   <div class="customer-top">
+    <div class="avatar"></div>
+    <div class="rating">★★★★★</div>
+   </div>
+   <blockquote>“KwoteSmart has made my invoicing process so easy. I get paid faster and I love the beautiful templates!”</blockquote>
+   <div class="customer-name">Emeka Johnson</div>
+   <div class="customer-role">CEO, Emtech Build Ltd</div>
+  </article>
+
+  <article class="testimonial-card">
+   <div class="customer-top">
+    <div class="avatar woman"></div>
+    <div class="rating">★★★★★</div>
+   </div>
+   <blockquote>“I love how easy it is to track payments and manage my clients. KwoteSmart is a game changer!”</blockquote>
+   <div class="customer-name">Tosin Adeyemi</div>
+   <div class="customer-role">CEO, T.A. Interiors</div>
+  </article>
+
+  <article class="testimonial-card">
+   <div class="customer-top">
+    <div class="avatar woman yellow"></div>
+    <div class="rating">★★★★★</div>
+   </div>
+   <blockquote>“Professional, simple and reliable. I can now focus on growing my business without the stress.”</blockquote>
+   <div class="customer-name">Chinwe Nwosu</div>
+   <div class="customer-role">Owner, Pearl Events</div>
+  </article>
+
+  <button class="carousel-arrow right" aria-label="Next testimonial">›</button>
+ </div>
+
+ <div class="testimonial-dots">
+  <span class="testimonial-dot active"></span><span class="testimonial-dot"></span>
+  <span class="testimonial-dot"></span><span class="testimonial-dot"></span>
+ </div>
+ </div>
+ <div class="testimonial-space"></div>
+</section>
+
+
+
+<section class="faq-section">
+ <div class="container">
+ <div class="faq-inner">
+  <div class="faq-dashed"></div>
+  <div class="faq-heading">
+   <div class="faq-label"><span class="faq-number">3</span><span>Frequently Asked Questions</span></div>
+   <h2>Got Questions?</h2>
+   <p>We've got answers. Here are some common questions<br>about KwoteSmart.</p>
+  </div>
+
+  <div class="faq-list">
+   <div class="faq-item">
+    <div class="faq-question"><span>Is KwoteSmart free to use?</span><span class="faq-chevron">⌄</span></div>
+    <div class="faq-answer">Yes. You can get started with KwoteSmart for free and create quotes, invoices and manage your business.</div>
+   </div>
+   <div class="faq-item">
+    <div class="faq-question"><span>Can I use KwoteSmart on my mobile phone?</span><span class="faq-chevron">⌄</span></div>
+    <div class="faq-answer">Yes. KwoteSmart is designed to work smoothly on mobile devices so you can manage your business wherever you are.</div>
+   </div>
+   <div class="faq-item">
+    <div class="faq-question"><span>Does it support multiple businesses?</span><span class="faq-chevron">⌄</span></div>
+    <div class="faq-answer">You can organize your business information and keep your quoting, invoicing and client management in one place.</div>
+   </div>
+   <div class="faq-item">
+    <div class="faq-question"><span>How do I get paid with Paystack?</span><span class="faq-chevron">⌄</span></div>
+    <div class="faq-answer">Connect your payment flow through Paystack and let customers pay securely while you receive payment notifications.</div>
+   </div>
+  </div>
+ </div>
+ </div>
+</section>
+
+
+<section class="cta-section advert-section" aria-label="Final promotional advert banner">
+ <div class="container">
+ <div class="advert-card cta-card">
+  <img class="advert-image" src="assets/images/promotional-2.png" alt="KwoteSmart business growth promotional advert">
+ </div>
+ </div>
+</section>
+
+
+<footer class="footer">
+ <div class="container">
+ <div class="footer-top">
+  <div class="footer-brand"><div class="footer-logo">▣</div><div><strong>Kwote<span>Smart</span></strong><small>Quote • Invoice • Get Paid</small></div></div>
+  <div class="footer-col"><h4>Quick Links</h4><a href="#">Home</a><a href="#">Features</a><a href="#">Pricing</a><a href="#">FAQs</a></div>
+  <div class="footer-col"><h4>Support</h4><a href="#">Help Center</a><a href="#">Contact Us</a><a href="#">Terms of Service</a><a href="#">Privacy Policy</a></div>
+  <div class="footer-col"><h4>Get the App</h4><div class="badges"><div class="badge"><b>●</b><div><span>Download on the</span>App Store</div></div><div class="badge"><b>▶</b><div><span>GET IT ON</span>Google Play</div></div></div></div>
+ </div>
+ <div class="footer-mid"><div class="contact"><span>✉ support@kwotesmart.com</span><span>☎ +234 810 123 4567</span><span>⌖ Lagos, Nigeria</span></div><div class="social"><span>f</span><span>◎</span><span>𝕏</span><span>in</span><span>▶</span></div></div>
+ <div class="footer-bottom"><span>© 2025 KwoteSmart. All rights reserved.</span><span class="tagline">Smarter Business. Bigger Dreams.</span></div>
+ </div>
+</footer>
+
+<script>
+document.querySelectorAll('.faq-question').forEach(function(question){
+  question.addEventListener('click', function(){
+    const item = this.parentElement;
+    document.querySelectorAll('.faq-item.open').forEach(function(other){
+      if(other !== item) other.classList.remove('open');
+    });
+    item.classList.toggle('open');
+  });
+});
+</script>
+
+</body>
+</html>
