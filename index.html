@@ -77,10 +77,10 @@ body{font-family:Inter,Arial,Helvetica,sans-serif;color:#10243f}
 
 /* Shared: full-bleed replaceable advert artwork (used by .pay and .cta-section) */
 .advert-card{
- padding:0 !important;background:#fff;
+ padding:0 !important;background:#fff;transform:translateZ(0);-webkit-mask-image:-webkit-radial-gradient(white,black);
 }
 .advert-image{
- display:block;width:100%;height:100%;object-fit:contain;object-position:center;
+ display:block;width:100%;height:100%;object-fit:cover;object-position:center;border-radius:inherit;
 }
 
 /* HOW IT WORKS TOP VISIBLE */
@@ -134,7 +134,7 @@ body{font-family:Inter,Arial,Helvetica,sans-serif;color:#10243f}
 .footer-brand{display:flex;gap:17px;align-items:flex-start;padding-top:10px}.footer-logo{width:62px;height:62px;border-radius:11px;background:#d69a22;color:#fff;display:grid;place-items:center;font-size:31px;font-weight:800;box-shadow:inset 0 -4px 0 rgba(0,0,0,.07)}
 .footer-brand strong{font-size:25px;line-height:1.1;margin-top:5px}.footer-brand strong span{color:#d19827}.footer-brand small{display:block;color:#8591a2;font-size:15px;margin-top:8px}
 .footer-col h4{font-size:18px;margin:2px 0 16px}.footer-col a{display:block;text-decoration:none;color:#78869a;font-size:16px;line-height:1.9}.badges{display:flex;flex-direction:column;gap:10px}.badge{height:49px;width:167px;border-radius:7px;background:#14263d;color:#fff;display:flex;align-items:center;padding:0 12px;gap:8px;font-size:10px;font-weight:700}.badge b{font-size:16px}.badge span{font-size:8px;font-weight:400;display:block}
-.footer-mid{height:76px;display:flex;align-items:center;justify-content:space-between}.contact{display:flex;gap:52px;color:#748299;font-size:14px}.contact span{display:flex;align-items:center;gap:9px}.social{display:flex;gap:24px;font-weight:800;font-size:16px;color:#22364e}.footer-bottom{height:77px;border-top:1px solid #e9eaec;display:flex;align-items:center;justify-content:space-between;color:#8591a2;font-size:13px}.tagline{font-family:cursive;color:#b58629;font-size:20px;font-style:italic}
+.footer-mid{height:76px;display:flex;align-items:center;justify-content:space-between}.contact{display:flex;gap:52px;color:#748299;font-size:14px}.contact span{display:flex;align-items:center;gap:9px}.contact span svg{width:18px;height:18px;color:#caa052;flex:none}.social{display:flex;gap:14px}.social a{width:44px;height:44px;border-radius:50%;background:#fbecd0;color:#16243b;display:grid;place-items:center;text-decoration:none;transition:background .2s}.social a svg{width:19px;height:19px}.social a:hover{background:#f4dcab}.footer-bottom{height:77px;border-top:1px solid #e9eaec;display:flex;align-items:center;justify-content:space-between;color:#8591a2;font-size:13px}.tagline{font-family:cursive;color:#b58629;font-size:20px;font-style:italic}
 
 
 /* POWERFUL FEATURES + CUSTOMER TESTIMONIALS EXTENSION */
@@ -578,9 +578,12 @@ body{font-family:Inter,Arial,Helvetica,sans-serif;color:#10243f}
  /* Footer */
  .footer{height:auto;padding:32px 0}
  .footer-top{height:auto;grid-template-columns:1fr;gap:28px}
- .footer-mid{flex-direction:column;gap:14px;align-items:flex-start;height:auto;padding:20px 0}
- .contact{flex-direction:column;gap:12px;align-items:flex-start}
- .footer-bottom{flex-direction:column;gap:8px;align-items:flex-start;height:auto;padding:20px 0}
+ .footer-mid{flex-direction:column;gap:24px;align-items:flex-start;height:auto;padding:24px 0}
+ .contact{flex-direction:column;gap:18px;align-items:flex-start;font-size:16px}
+ .contact span svg{width:20px;height:20px}
+ .social{gap:16px}
+ .footer-bottom{flex-direction:column;gap:10px;align-items:flex-start;height:auto;padding:22px 0}
+ .tagline{font-size:19px}
 }
 
 /* ============ MOBILE HERO — exact match to KwoteSmart v20 reference (max-width:700px) ============ */
@@ -924,7 +927,7 @@ body{font-family:Inter,Arial,Helvetica,sans-serif;color:#10243f}
   <div class="footer-col"><h4>Support</h4><a href="#">Help Center</a><a href="#">Contact Us</a><a href="#">Terms of Service</a><a href="#">Privacy Policy</a></div>
   <div class="footer-col"><h4>Get the App</h4><div class="badges"><div class="badge"><b>●</b><div><span>Download on the</span>App Store</div></div><div class="badge"><b>▶</b><div><span>GET IT ON</span>Google Play</div></div></div></div>
  </div>
- <div class="footer-mid"><div class="contact"><span>✉ support@kwotesmart.com</span><span>☎ +234 810 123 4567</span><span>⌖ Lagos, Nigeria</span></div><div class="social"><span>f</span><span>◎</span><span>𝕏</span><span>in</span><span>▶</span></div></div>
+ <div class="footer-mid"><div class="contact"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="M3 6.5l9 6.5 9-6.5"/></svg> support@kwotesmart.com</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 3.5h3.2l1.6 4.4-2.3 1.9a13.6 13.6 0 0 0 6.2 6.2l1.9-2.3 4.4 1.6v3.2c0 1.1-1 2-2.2 1.8-4-.6-7.8-2.6-10.7-5.5C4.7 12.1 2.7 8.3 2.1 4.3 1.9 3.1 2.8 2 4 2h1.5z"/></svg> +234 810 123 4567</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21.5s7-6.3 7-12A7 7 0 0 0 5 9.5c0 5.7 7 12 7 12z"/><circle cx="12" cy="9.5" r="2.4"/></svg> Lagos, Nigeria</span></div><div class="social"><a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14.5 8.5H16V5.7c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.4H7.3v3.2h2.5V22h3.3v-6.8h2.5l.4-3.2h-2.9V9.9c0-.9.3-1.4 1.4-1.4z"/></svg></a><a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></svg></a><a href="#" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 3H21l-6.6 7.5L22.2 21h-6.2l-4.9-6.4L5.4 21H3.3l7-8-7.5-10h6.3l4.4 5.8L18.9 3zm-1.1 16.1h1.7L7.3 4.8H5.5l12.3 14.3z"/></svg></a><a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2 2 0 1 1 0 4 2 2 0 0 1 0-4zM3.5 9h3v11.5h-3zM9.5 9h2.9v1.6h.04c.4-.8 1.5-1.6 3.06-1.6 3.3 0 3.9 2.1 3.9 4.9v6.6h-3v-5.9c0-1.4 0-3.2-2-3.2s-2.3 1.5-2.3 3.1v6h-3z"/></svg></a><a href="#" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 5.9c-.7.3-1.5.6-2.3.7a4 4 0 0 0 1.8-2.2c-.8.5-1.6.8-2.6 1a4 4 0 0 0-6.9 3.6A11.4 11.4 0 0 1 3.6 4.6a4 4 0 0 0 1.2 5.3c-.6 0-1.3-.2-1.8-.5v.05a4 4 0 0 0 3.2 3.9c-.6.2-1.2.2-1.8.1a4 4 0 0 0 3.7 2.8A8 8 0 0 1 2 17.6a11.3 11.3 0 0 0 6.2 1.8c7.4 0 11.5-6.2 11.5-11.5v-.5c.8-.6 1.5-1.3 2.3-2.1z"/></svg></a></div></div>
  <div class="footer-bottom"><span>© 2025 KwoteSmart. All rights reserved.</span><span class="tagline">Smarter Business. Bigger Dreams.</span></div>
  </div>
 </footer>
