@@ -70,9 +70,9 @@ body{font-family:Inter,Arial,Helvetica,sans-serif;color:#10243f}
 .security p{font-size:24px;line-height:1.35;color:#7a889c;margin:0;white-space:nowrap}
 
 /* PAYSTACK — promotional advert banner (replaceable image) */
-.pay{position:relative;width:100%;height:361px;margin-top:35px}
+.pay{position:relative;width:100%;height:auto;margin-top:35px}
 .pay-card{
- height:361px;border-radius:27px;overflow:hidden;position:relative;background:#fff;
+ height:auto;aspect-ratio:1536/642;border-radius:16px;overflow:hidden;position:relative;background:#fff;
 }
 
 /* Shared: full-bleed replaceable advert artwork (used by .pay and .cta-section) */
@@ -80,7 +80,7 @@ body{font-family:Inter,Arial,Helvetica,sans-serif;color:#10243f}
  padding:0 !important;background:#fff;transform:translateZ(0);-webkit-mask-image:-webkit-radial-gradient(white,black);
 }
 .advert-image{
- display:block;width:100%;height:100%;object-fit:cover;object-position:center;border-radius:inherit;
+ display:block;width:100%;height:100%;object-fit:contain;object-position:center;border-radius:inherit;
 }
 
 /* HOW IT WORKS TOP VISIBLE */
@@ -127,8 +127,8 @@ body{font-family:Inter,Arial,Helvetica,sans-serif;color:#10243f}
 
 
 /* CTA — final promotional advert banner (replaceable image) */
-.cta-section{position:relative;width:100%;height:430px}
-.cta-card{height:385px;width:100%;border-radius:27px;background:#fff;position:relative;overflow:hidden}
+.cta-section{position:relative;width:100%;height:auto}
+.cta-card{height:auto;aspect-ratio:1536/512;width:100%;border-radius:16px;background:#fff;position:relative;overflow:hidden}
 .footer{position:relative;width:100%;height:330px;color:#10243f}
 .footer-top{height:177px;display:grid;grid-template-columns:1.35fr .9fr .9fr .95fr;column-gap:58px;padding:10px 0 0;border-bottom:1px solid #e7e8ea}
 .footer-brand{display:flex;gap:17px;align-items:flex-start;padding-top:10px}.footer-logo{width:62px;height:62px;border-radius:11px;background:#d69a22;color:#fff;display:grid;place-items:center;font-size:31px;font-weight:800;box-shadow:inset 0 -4px 0 rgba(0,0,0,.07)}
@@ -353,21 +353,8 @@ body{font-family:Inter,Arial,Helvetica,sans-serif;color:#10243f}
 
 
 
-/* WIDER/TALLER PROMOTIONAL BANNERS */
-.pay{
- height:420px;
-}
-.pay-card{
- height:420px;
-}
-
-/* Match the extra breathing room on the final banner near the footer. */
-.cta-section{
- height:470px;
-}
-.cta-card{
- height:440px;
-}
+/* Banner height now comes from aspect-ratio (matches the real image dimensions) so
+   nothing is cropped; see .pay-card / .cta-card above. */
 
 
 /* TOP NAVIGATION + HERO */
@@ -516,7 +503,7 @@ body{font-family:Inter,Arial,Helvetica,sans-serif;color:#10243f}
 
  /* Pay — advert image */
  .pay{height:auto}
- .pay-card{height:auto;aspect-ratio:1536/642}
+ .pay-card{height:auto;aspect-ratio:1536/642;border-radius:12px}
 
  /* How it works */
  .how{height:auto;padding:36px 0}
@@ -573,7 +560,7 @@ body{font-family:Inter,Arial,Helvetica,sans-serif;color:#10243f}
 
  /* CTA — advert image */
  .cta-section{height:auto;padding:36px 0}
- .cta-card{height:auto;aspect-ratio:1536/512}
+ .cta-card{height:auto;aspect-ratio:1536/512;border-radius:12px}
 
  /* Footer */
  .footer{height:auto;padding:32px 0}
